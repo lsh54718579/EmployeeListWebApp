@@ -1,0 +1,83 @@
+<h1 mat-dialog-title>Configure your script</h1>
+<div mat-dialog-content>
+  <form [formGroup]="scriptForm">
+    <div class="mat-radio">
+      <mat-radio-group
+        required
+        formControlName="chooseMode"
+        aria-label="Select an option"
+      >
+        <mat-radio-button value="story">Story</mat-radio-button>
+        <mat-radio-button value="event">Event</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Chapter</mat-label>
+      <mat-select formControlName="chapterNum">
+        <mat-option *ngFor="let num of numsOneToNine" [value]="num">{{
+          num
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Stage</mat-label>
+      <mat-select formControlName="stageNum">
+        <mat-option *ngFor="let num of numsOneToNine" [value]="num">{{
+          num
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Postfix</mat-label>
+      <mat-select formControlName="postFixId">
+        <mat-option *ngFor="let post of stageType" [value]="post">{{
+          post
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Duration in minutes</mat-label>
+      <mat-select formControlName="durationNum">
+        <mat-option *ngFor="let time of timeInMins" [value]="time">{{
+          time
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Number of iterations</mat-label>
+      <mat-select formControlName="numOfIterations">
+        <mat-option *ngFor="let num of numsOneToNine" [value]="num">{{
+          num
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Salvage</mat-label>
+      <mat-select formControlName="salvageOption">
+        <mat-option *ngFor="let sal of salvageType" [value]="sal">{{
+          sal
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div mat-dialog-actions [align]="'end'"></div>
+  <button
+    class="mat-button"
+    mat-raised-button
+    color="primary"
+    class="mat-button"
+    (click)="generateScript()"
+    mat-dialog-close=""
+  >
+    Generate
+  </button>
+  <span class="space"></span>
+  <button
+    class="mat-button"
+    mat-raised-button
+    color="accent"
+    mat-dialog-close=""
+  >
+    Cancel
+  </button>
+</div>

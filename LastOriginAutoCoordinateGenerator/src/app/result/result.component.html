@@ -1,0 +1,22 @@
+<div>
+  <textarea id="output" rows="50" cols="50" [(ngModel)]="textFile"></textarea>
+</div>
+<div>
+  <table>
+    <td>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-right: 10px"
+        [cdkCopyToClipboard]="textFile"
+      >
+        Copy to clipboard
+      </button>
+    </td>
+    <td>
+      <button mat-raised-button color="primary" mat-dialog-close="">
+        Cancel
+      </button>
+    </td>
+  </table>
+</div>

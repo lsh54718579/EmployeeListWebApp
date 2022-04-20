@@ -1,0 +1,71 @@
+<div class="col-md-5 offset-md-2">
+  <h1 class="text-center">Add new character</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label> Character name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="charName"
+        [(ngModel)]="character.charName"
+        name="charName"
+      />
+    </div>
+    <div class="form-group">
+      <label> Level</label>
+      <input
+        type="text"
+        class="form-control"
+        id="level"
+        [(ngModel)]="character.level"
+        name="level"
+      />
+    </div>
+    <div class="form-group">
+      <label> Base Attack</label>
+      <input
+        type="text"
+        class="form-control"
+        id="baseAtk"
+        [(ngModel)]="character.baseAtk"
+        name="baseAtk"
+      />
+    </div>
+    <div class="form-group">
+      <label> Base Defense</label>
+      <input
+        type="text"
+        class="form-control"
+        id="baseDef"
+        [(ngModel)]="character.baseDef"
+        name="baseDef"
+      />
+    </div>
+    <div class="form-group">
+      <label> Base HP</label>
+      <input
+        type="text"
+        class="form-control"
+        id="baseHp"
+        [(ngModel)]="character.baseHp"
+        name="baseHp"
+      />
+    </div>
+    <br />
+    <br />
+    <mat-toolbar-row>
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn btn-success"
+        type="submit"
+      >
+        Add
+      </button>
+      <span class="spacer"></span>
+      <button mat-raised-button color="warn" (click)="goToCharacterList()">
+        Back
+      </button>
+    </mat-toolbar-row>
+  </form>
+</div>

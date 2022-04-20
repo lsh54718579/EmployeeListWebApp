@@ -1,0 +1,87 @@
+<div>
+  <h1 class="text-center">Character List</h1>
+
+  <div class="container">
+    <div style="margin-top: 10px">
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. Diluc"
+          #input
+        />
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Character Column -->
+          <ng-container matColumnDef="Character">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Character</th>
+            <td mat-cell *matCellDef="let row">{{ row.charName }}</td>
+          </ng-container>
+
+          <!-- Level Column -->
+          <ng-container matColumnDef="Level">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Level</th>
+            <td mat-cell *matCellDef="let row">{{ row.level }}</td>
+          </ng-container>
+
+          <!-- Attack Column -->
+          <ng-container matColumnDef="Attack">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Attack</th>
+            <td mat-cell *matCellDef="let row">{{ row.baseAtk }}</td>
+          </ng-container>
+
+          <!-- Defense Column -->
+          <ng-container matColumnDef="Defense">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Defense</th>
+            <td mat-cell *matCellDef="let row">{{ row.baseDef }}</td>
+          </ng-container>
+
+          <!-- HP Column -->
+          <ng-container matColumnDef="HP">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>HP</th>
+            <td mat-cell *matCellDef="let row">{{ row.baseHp }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+            <td mat-cell *matCellDef="let row">
+              <button
+                (click)="updateCharacter(row.id)"
+                class="update-character"
+                mat-icon-button
+                color="primary"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button
+                (click)="deleteCharacter(row.id)"
+                mat-icon-button
+                color="warn"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">
+              No data matching the filter "{{ input.value }}"
+            </td>
+          </tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10]"
+          aria-label="Select page of users"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

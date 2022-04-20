@@ -1,0 +1,42 @@
+<p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button
+        mat-raised-button
+        color="basic"
+        [matMenuTriggerFor]="menu"
+        aria-label="menu-button"
+      >
+        Game Wikis
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openLink(1)">
+          <span>Gamekee</span>
+        </button>
+        <button mat-menu-item (click)="openLink(2)">
+          <span>International Wiki</span>
+        </button>
+      </mat-menu>
+      <span class="example-spacer"></span>
+      <span>Last Origin Autoplay Script Generator</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-raised-button
+        color="accent"
+        class="text-button"
+        aria-label="openDialog"
+        mat-button
+        (click)="openDialog()"
+      >
+        Generate script
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+<br />
+<br />
+<br />
+
+<!-- <body class="text-center">
+  <p></p>
+</body> -->

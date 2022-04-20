@@ -1,0 +1,201 @@
+<h1 mat-dialog-title>Damage Calculator</h1>
+<div mat-dialog-content>
+  <form [formGroup]="scriptForm">
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>Element</mat-label>
+      <mat-select formControlName="chapterNum">
+        <mat-option *ngFor="let element of elements" [value]="element">{{
+          element
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>triggeres element</mat-label>
+      <mat-select formControlName="chapterNum">
+        <mat-option *ngFor="let element of elements" [value]="element">{{
+          element
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-label>on monster</mat-label>
+      <mat-select formControlName="chapterNum">
+        <mat-option *ngFor="let monster of monsters" [value]="monster">{{
+          monster
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div mat-dialog-actions [align]="'end'"></div>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Character Level</mat-label>
+      <input matInput type="text" [(ngModel)]="cLevel" />
+      <button
+        *ngIf="cLevel"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="cLevel = 0"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Monster Level</mat-label>
+      <input matInput type="text" [(ngModel)]="mLevel" />
+      <button
+        *ngIf="mLevel"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="mLevel = 0"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <table>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Character white Attack</mat-label>
+          <input matInput type="text" [(ngModel)]="whiteAttack" />
+          <button
+            *ngIf="whiteAttack"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="whiteAttack = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Total Atk. Increase</mat-label>
+          <input matInput type="text" [(ngModel)]="totalAtkInc" />
+          <button
+            *ngIf="totalAtkInc"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="totalAtkInc = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Total Atk.% Increase</mat-label>
+          <input matInput type="text" [(ngModel)]="totalAtkIncP" />
+          <button
+            *ngIf="totalAtkIncP"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="totalAtkIncP = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </table>
+    <table>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Crit Rate</mat-label>
+          <input matInput type="text" [(ngModel)]="critRate" />
+          <button
+            *ngIf="critRate"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="critRate = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Crit Damage</mat-label>
+          <input matInput type="text" [(ngModel)]="critDmg" />
+          <button
+            *ngIf="critDmg"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="critDmg = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Elemental Mastery</mat-label>
+          <input matInput type="text" [(ngModel)]="elemMast" />
+          <button
+            *ngIf="elemMast"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="elemMast = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </table>
+    <table>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Team Effect</mat-label>
+          <input matInput type="text" [(ngModel)]="teamEffectP" />
+          <button
+            *ngIf="teamEffectP"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="teamEffectP = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Static Reaction Dmg Inc.</mat-label>
+          <input matInput type="text" [(ngModel)]="statReactionDmgInc" />
+          <button
+            *ngIf="statReactionDmgInc"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="statReactionDmgInc = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Unknown Dmg Inc.</mat-label>
+          <input matInput type="text" [(ngModel)]="unknownDmgInc" />
+          <button
+            *ngIf="unknownDmgInc"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="unknownDmgInc = 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </table>
+  </form>
+</div>

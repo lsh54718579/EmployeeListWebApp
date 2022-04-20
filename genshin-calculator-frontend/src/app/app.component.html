@@ -1,0 +1,54 @@
+<p style="text-align: center">
+  <mat-toolbar color="primary">
+    <span></span>
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="characters"
+      routerLinkActive="active"
+      class="mat-button"
+    >
+      <span>Characters</span>
+    </button>
+    <span style="margin-right: 10px"></span>
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="add-new-character"
+      routerLinkActive="active"
+      class="mat-button"
+    >
+      <span>New Character</span>
+    </button>
+    <span style="margin-right: 10px"></span>
+
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="damage-calculator"
+      routerLinkActive="active"
+      class="mat-button"
+      (click)="openDialog()"
+    >
+      <span>Damage Calculator</span>
+    </button>
+    <span class="spacer"></span>
+
+    <span class="spacer"></span>
+
+    <button mat-button>Log In</button>
+  </mat-toolbar>
+</p>
+
+<div class="container">
+  <!-- Use <Router--outlet> and 
+    specify path in app-routing.module.ts to 
+    inject all components  -->
+  <router-outlet> </router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span>All Rights Reserved 2022 @Sihang Li</span>
+  </div>
+</footer>
